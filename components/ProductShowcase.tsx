@@ -1,49 +1,28 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const highlights = [
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                <circle cx="12" cy="13" r="4" />
-            </svg>
-        ),
-        title: "Imagen como de película",
-        description: "Cada toma tiene el look y la emoción de una escena de cine. Tu boda va a verse increíble.",
+        image: "https://res.cloudinary.com/dxcr9utre/image/upload/v1770334085/WhatsApp_Image_2026-02-05_at_5.21.14_PM_ayu139.jpg",
+        title: "Tu equipo dedicado",
+        description: "Videógrafos, fotógrafos y operadores de drone — un equipo completo enfocado en que no se escape ni un solo momento.",
     },
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
-            </svg>
-        ),
-        title: "Tomas aéreas espectaculares",
-        description: "Vistas que te van a quitar el aliento. Capturas desde el cielo que hacen único tu recuerdo.",
+        image: "https://res.cloudinary.com/dxcr9utre/image/upload/v1770334142/9837c6f78552d14f441722a0f80cafb0-xxlarge_x6grtm.jpg",
+        title: "Cineminuto para compartir",
+        description: "Un resumen de un minuto con lo mejor de tu boda — perfecto para compartir con familia y amigos.",
     },
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-        ),
-        title: "Iluminación perfecta",
-        description: "La luz hace la magia. Nos aseguramos de que cada momento se vea tan hermoso como lo sentiste.",
+        image: "https://res.cloudinary.com/dxcr9utre/image/upload/v1770334370/91ebce557df7d97b598c4084a77f100f-xxlarge_w1dddt.jpg",
+        title: "Reels para tus redes",
+        description: "Contenido profesional listo para Instagram y TikTok que va a enamorar a todos tus seguidores.",
     },
     {
-        icon: (
-            <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-        ),
-        title: "Edición de alto nivel",
-        description: "Color, ritmo y emoción. Tu video tendrá el acabado profesional que solo el cine puede darte.",
+        image: "https://res.cloudinary.com/dxcr9utre/image/upload/v1770334085/cd1fbe2511c34500d1c8a86399579a25-xxlarge_uzzrte.jpg",
+        title: "Video highlight 4K",
+        description: "De 5 a 6 minutos con las mejores tomas de tu día, editado con color y ritmo de cine.",
     },
 ];
 
@@ -54,7 +33,7 @@ export default function ProductShowcase() {
 
             <div className="container">
                 <div className="text-center mb-16">
-                    <p className="section-label mb-4">Lo que nos hace diferentes</p>
+                    <p className="section-label mb-4">Lo que te llevas</p>
                     <h2 className="section-title">
                         No es solo un video,<br />
                         <span className="italic text-white/60">es tu historia de amor</span>
@@ -64,21 +43,33 @@ export default function ProductShowcase() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
                     {highlights.map((item, index) => (
                         <motion.div
                             key={item.title}
-                            className="group p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-[#C9A050]/20 transition-all duration-500"
+                            className="group rounded-2xl border border-white/5 bg-white/[0.02] hover:border-[#C9A050]/20 transition-all duration-500 overflow-hidden"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
-                            <div className="text-[#C9A050]/50 group-hover:text-[#C9A050] transition-colors duration-500 mb-5">
-                                {item.icon}
+                            {/* Image */}
+                            <div className="relative h-52 overflow-hidden">
+                                <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    sizes="(max-width: 640px) 100vw, 50vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             </div>
-                            <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                            <p className="text-sm text-white/40 leading-relaxed">{item.description}</p>
+
+                            {/* Text */}
+                            <div className="p-6">
+                                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                                <p className="text-sm text-white/40 leading-relaxed">{item.description}</p>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

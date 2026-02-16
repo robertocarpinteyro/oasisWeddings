@@ -5,9 +5,20 @@ import { motion } from "framer-motion";
 export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black z-0" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,160,80,0.04)_0%,transparent_70%)] z-0" />
+            {/* Video Background */}
+            <div className="absolute inset-0 z-0">
+                <iframe
+                    src="https://drive.google.com/file/d/1AtBE8gsV4VG2UIUVbKNvwzLniZIjwzvT/preview"
+                    className="w-full h-full object-cover"
+                    style={{ border: "none", pointerEvents: "none", width: "100%", height: "100%", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%) scale(1.5)" }}
+                    allow="autoplay"
+                    allowFullScreen
+                    title="Wedding Demo Reel"
+                />
+                {/* Dark overlay over video */}
+                <div className="absolute inset-0 bg-black/65" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+            </div>
 
             <div className="container relative z-10 text-center pt-24 pb-20">
                 <motion.div
@@ -17,14 +28,14 @@ export default function Hero() {
                 >
                     <p className="section-label mb-6">Oasis Creativa × PG Estrategias</p>
 
-                    <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] max-w-4xl mx-auto">
+                    <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] max-w-4xl mx-auto text-white drop-shadow-lg">
                         Tu boda merece{" "}
-                        <span className="italic text-white/70">ser una película</span>
+                        <span className="italic text-white/80">ser una película</span>
                     </h1>
 
-                    <p className="section-subtitle mx-auto mt-8 max-w-2xl">
+                    <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mx-auto mt-8 drop-shadow-md">
                         Cada mirada, cada risa, cada lágrima de felicidad merece ser capturada como se siente —
-                        con la emoción intacta y la belleza que solo el cine puede darle. Creamos recuerdos que te pondrán la piel de gallina cada vez que los veas.
+                        con la emoción intacta y la belleza que solo el cine puede darle.
                     </p>
                 </motion.div>
 
@@ -41,7 +52,7 @@ export default function Hero() {
                         Ver Paquetes
                     </button>
                     <button
-                        className="btn-outline"
+                        className="btn-outline !border-white/30 !text-white hover:!bg-white/10"
                         onClick={() => window.open("https://wa.me/528141558165", "_blank")}
                     >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -57,8 +68,8 @@ export default function Hero() {
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                    <div className="w-5 h-8 rounded-full border border-[#C9A050]/30 flex items-start justify-center p-1">
-                        <div className="w-1 h-2 bg-[#C9A050]/50 rounded-full" />
+                    <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
+                        <div className="w-1 h-2 bg-white/50 rounded-full" />
                     </div>
                 </motion.div>
             </div>
