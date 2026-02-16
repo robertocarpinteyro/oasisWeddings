@@ -1,64 +1,59 @@
 "use client";
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-import {Button} from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
-import {ArrowRight} from "lucide-react";
-import starImage from "@/public/shapes/star.png";
-import springImage from "@/public/shapes/spring.png";
-import {useRef} from "react";
-import {motion, useScroll, useTransform} from "framer-motion";
-
-const CallToAction = () => {
-    const callToActionRef = useRef(null);
+export default function CallToAction() {
+    const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
-        target: callToActionRef,
+        target: containerRef,
         offset: ["start end", "end start"],
     });
+
     const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
 
     return (
-       <section ref={callToActionRef} className="bg-gradient-to-b from-white to-[#D2DCFF] py-10 md:py-24 overflow-x-clip">
-           <div className="container">
-               <div className="heading-wrapper relative">
-                   <h2 className="title">Sign up for free today</h2>
-                   <p className="description">
-                       Celebrate the joy of accomplishment with an app designed to track progress and motivate your efforts.
-                   </p>
-                   <motion.img
-                       src={starImage.src}
-                       alt="Star Shape"
-                       width={360}
-                       className="hidden md:block -top-[156px] -left-[400px] md:absolute"
-                       style={{
-                           translateY,
-                       }}
-                   />
-                   <motion.img
-                       src={springImage.src}
-                       alt="Spring Shape"
-                       width={300}
-                       className="hidden md:block -top-[19px] -right-[331px] md:absolute"
-                       style={{
-                           translateY,
-                       }}
-                   />
-               </div>
-               <div className="flex items-center justify-center gap-1 mt-10">
-                   <Button>
-                       <Link href="/">
-                           Get for free
-                       </Link>
-                   </Button>
-                   <Button variant="link">
-                       <Link href="/">
-                           Learn more
-                       </Link>
-                       <ArrowRight className="w-4 h-4" />
-                   </Button>
-               </div>
-           </div>
-       </section>
-    )
-}
-export default CallToAction
+        <section ref={containerRef} className="bg-gradient-to-b from-white to-[#D2DCFF] py-24 overflow-x-clip">
+            <div className="container">
+                <div className="max-w-[540px] mx-auto relative text-center">
+
+                    <h2 className="text-5xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#5a4832] text-transparent bg-clip-text mt-5">
+                        ¿Listos para reservar su fecha?
+                    </h2>
+                    <p className="text-xl text-[#010D3E] tracking-tight mt-5">
+                        Las fechas se llenan rápido. Contáctanos hoy para asegurar que tu historia sea contada con la calidad que merece.
+                    </p>
+                    {/* Decorative elements - keeping abstractions or could replace with rings/flowers */}
+                    <motion.img
+                        src="/assets/star.png"
+                        alt="Star"
+                        width={360}
+                        className="absolute -left-[350px] -top-[137px]"
+                        style={{ translateY }}
+                    />
+                    <motion.img
+                        src="/assets/spring.png"
+                        alt="Spring"
+                        width={360}
+                        className="absolute -right-[331px] -top-[19px]"
+                        style={{ translateY }}
+                    />
+                </div>
+                <div className="flex justify-center mt-10 gap-2">
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => window.open("https://wa.me/528141558165", "_blank")}
+                    >
+                        Cotizar por WhatsApp
+                    </button>
+                    <button
+                        className="btn btn-text gap-1"
+                        onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                        <span>Ver Paquetes de Nuevo</span>
+                        <span className="text-xl">↑</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    );
+};

@@ -1,63 +1,51 @@
 "use client";
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+// Ideally we would import specific equipment images here
+// import appScreen from "@/assets/app-screen.png"; 
 
-import {useRef} from "react";
-import Image from "next/image";
-import {motion, useScroll, useTransform} from 'framer-motion';
-import LogoTicker from "@/components/LogoTicker";
-import productImage from "@/public/product-picture.png";
-import pyramidShape from "@/public/shapes/pyramid.png";
-import tubeShape from "@/public/shapes/tube.png";
-
-const ProductShowcase = () => {
+export default function ProductShowcase() {
     const showcaseRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: showcaseRef,
         offset: ["start end", "end start"],
     });
-    const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
+    const rotateX = useTransform(scrollYProgress, [0, 1], [15, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
 
     return (
-        <>
-            <LogoTicker />
-
-            <section ref={showcaseRef} className="bg-gradient-to-b from-white to-[#D2DCFF] py-20 overflow-x-clip">
-                <div className="container">
-                    <div className="heading-wrapper">
-                        <div className="flex items-center justify-center">
-                            <span className="tag">Boost your productivity</span>
-                        </div>
-                        <h2 className="title">A more effective way to track progress</h2>
-                        <p className="description">
-                            Effortlessly turn your ideas into a fully functional,
-                            responsive, SaaS website in just minutes with this template.
-                        </p>
+        <section ref={showcaseRef} className="bg-gradient-to-b from-[#FFFFFF] to-[#D2DCFF] py-24 overflow-x-clip">
+            <div className="container">
+                <div className="max-w-[540px] mx-auto">
+                    <div className="flex justify-center">
+                        <div className="tag">Equipo de Alta Gama</div>
                     </div>
-                    <div className="relative">
-                        <Image src={productImage} alt="Product Image" className="mt-10"/>
-                        <motion.img
-                            src={pyramidShape.src}
-                            alt="Pyramid Shape"
-                            width={262}
-                            height={262}
-                            className="hidden md:block absolute -right-36 -top-32"
-                            style={{
-                                translateY,
-                            }}
-                        />
-                        <motion.img
-                            src={tubeShape.src}
-                            alt="Tube Shape"
-                            width={262}
-                            height={262}
-                            className="hidden md:block absolute -left-36 bottom-24"
-                            style={{
-                                translateY,
-                            }}
-                        />
-                    </div>
+                    <h2 className="text-center text-3xl md:text-5xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#5a4832] text-transparent bg-clip-text mt-5">
+                        Calidad de cine para tu boda
+                    </h2>
+                    <p className="text-center text-xl text-[#010D3E] tracking-tight mt-5">
+                        No somos solo videógrafos, somos cineastas. Utilizamos la misma tecnología que en las producciones cinematográficas para garantizar que cada encuadre sea una obra de arte.
+                    </p>
                 </div>
-            </section>
-        </>
-    )
-}
-export default ProductShowcase
+                <div className="relative mt-14">
+                    <motion.div
+                        style={{
+                            rotateX: rotateX,
+                            opacity: opacity,
+                            transformPerspective: "800px",
+                        }}
+                        className="rounded-xl border border-white/20 p-2 bg-white/50 backdrop-blur-sm shadow-2xl"
+                    >
+                        {/* Placeholder for a collage of equipment or a high-quality behind-the-scenes shot */}
+                        <div className="aspect-video bg-gray-900 rounded-lg flex items-center justify-center text-white/50 text-2xl font-light">
+                            <div className="text-center p-8">
+                                <p className="mb-4">Sony FX3 Cinema Line • Drones 4K • Iluminación Amaran</p>
+                                <span className="text-sm border border-white/20 px-3 py-1 rounded-full">Tecnología de Punta</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
