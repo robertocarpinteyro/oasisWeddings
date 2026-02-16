@@ -1,56 +1,52 @@
-"use client";
+import React from "react";
 
-import Image from "next/image";
-import AppLogo from '@/public/framer-logo.png'
-import Link from "next/link";
-import { ArrowUpRight, Twitter, Instagram, Linkedin, Youtube, Github } from "lucide-react";
-
-const Footer = () => {
+export default function Footer() {
     return (
-        <footer className="flex items-center justify-center bg-black text-[#BCBCBC] text-sm py-12 text-center">
-            <div className="container flex flex-col items-center justify-center gap-6">
-                <div className="inline-flex relative before:content-[''] before:absolute before:h-full before:w-full before:blur before:bg-[linear-gradient(to_right,#DD7DDF,#E1CD86,#BBCB92,#71C2EF,#3BFFFF,#DD7DDF)]">
-                    <Image src={AppLogo} alt="Framer" height={40} className="relative"/>
+        <footer className="bg-black border-t border-white/5 py-16">
+            <div className="container">
+                <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+                    {/* Brand */}
+                    <div className="flex flex-col gap-4">
+                        <img
+                            src="/assets/logotipo.svg"
+                            alt="Oasis Creativa"
+                            className="h-6 w-auto"
+                        />
+                        <p className="text-white/30 text-sm max-w-xs">
+                            Videografía cinematográfica para bodas.<br />
+                            Oasis Creativa × PG Estrategias.
+                        </p>
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex gap-16">
+                        <div className="flex flex-col gap-3">
+                            <p className="text-xs uppercase tracking-[0.2em] text-[#C9A050]/50 mb-1">Secciones</p>
+                            <a href="#servicios" className="text-sm text-white/50 hover:text-white transition-colors">Servicios</a>
+                            <a href="#pricing" className="text-sm text-white/50 hover:text-white transition-colors">Paquetes</a>
+                            <a href="#contacto" className="text-sm text-white/50 hover:text-white transition-colors">Contacto</a>
+                        </div>
+                        <div className="flex flex-col gap-3">
+                            <p className="text-xs uppercase tracking-[0.2em] text-[#C9A050]/50 mb-1">Contacto</p>
+                            <a
+                                href="https://wa.me/528141558165"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm text-white/50 hover:text-white transition-colors"
+                            >
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <nav className="flex flex-col md:flex-row gap-6 items-center justify-center">
-                    <Link href="/">Home</Link>
-                    <Link href="/">About</Link>
-                    <Link href="/">Features</Link>
-                    <Link href="/">Customers</Link>
-                    <Link href="/">Updates</Link>
-                    <Link href="/">Help</Link>
-                    <a
-                        key="GitHub"
-                        href="https://github.com/amirallami-code"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-row gap-1 hover:bg-transparent"
-                    >
-                        <ArrowUpRight className="w-4 h-4 mt-0.5" />
-                        Github
-                    </a>
-                </nav>
-                <div className="flex gap-6">
-                    <a href="/" key="Twitter" target="_blank" rel="noopener noreferrer">
-                        <Twitter className="w-4 h-4" />
-                    </a>
-                    <a href="/" key="Instagram" target="_blank" rel="noopener noreferrer">
-                        <Instagram className="w-4 h-4" />
-                    </a>
-                    <a href="/" key="Linkedin" target="_blank" rel="noopener noreferrer">
-                        <Linkedin className="w-4 h-4" />
-                    </a>
-                    <a href="/" key="Youtube" target="_blank" rel="noopener noreferrer">
-                        <Youtube className="w-4 h-4" />
-                    </a>
-                    <a href="/" key="Github" target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4" />
-                    </a>
+
+                {/* Bottom bar */}
+                <div className="mt-12 pt-8 border-t border-white/5 text-center">
+                    <p className="text-white/20 text-xs">
+                        © {new Date().getFullYear()} Oasis Creativa. Todos los derechos reservados.
+                    </p>
                 </div>
-                <p>&copy; 2025 Your Company, Inc. All rights reserved.</p>
-                <p>Made by <a key="Website" href="https://amirallami.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Amir</a></p>
             </div>
         </footer>
-    )
+    );
 }
-export default Footer

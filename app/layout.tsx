@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 
-const dmSans = DM_Sans({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-    title: "Framer",
-    description: "Template created by Frontend Tribe, Code by Amirhossein Allami",
+    title: "Oasis Creativa × PG Estrategias — Bodas Cinematográficas",
+    description: "Capturamos los mejores momentos de tu boda con calidad cinematográfica. Paquetes desde $17,000 MXN.",
 };
 
-export default function RootLayout({children, }: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en" className="relative">
-            <body className={clsx(dmSans.className, "antialiased bg-[#EAEEFE]")}>
+        <html lang="es" className="relative scroll-smooth">
+            <body className={clsx(inter.variable, playfair.variable, "antialiased bg-black text-white font-sans")}>
                 {children}
             </body>
         </html>
