@@ -18,7 +18,7 @@ const packages: PackageTier[] = [
         id: "esencia",
         title: "Esencia",
         subtitle: "Lo que importa",
-        price: "$18,000",
+        price: "$24,300",
         duration: "10 horas de cobertura",
         description: "Para las parejas que quieren un recuerdo auténtico y hermoso de su día especial, sin complicaciones.",
         features: [
@@ -33,7 +33,7 @@ const packages: PackageTier[] = [
         id: "eterna",
         title: "Eterna",
         subtitle: "Cada ángulo, cada emoción",
-        price: "$29,000",
+        price: "$39,150",
         duration: "10 horas de cobertura",
         description: "Nuestra opción más popular. Cobertura exclusiva para novio y novia con videógrafos dedicados y un fotógrafo profesional que no dejará escapar nada.",
         features: [
@@ -57,7 +57,7 @@ const packages: PackageTier[] = [
         id: "leyenda",
         title: "Leyenda",
         subtitle: "La experiencia definitiva",
-        price: "$38,000",
+        price: "$53,200",
         duration: "Cobertura completa",
         description: "La producción máxima. Un equipo completo dedicado a que cada segundo de tu boda se convierta en una obra de arte.",
         features: [
@@ -117,8 +117,8 @@ export default function Pricing() {
                                 key={pkg.id}
                                 onClick={() => setSelected(pkg.id)}
                                 className={`relative cursor-pointer rounded-2xl p-8 transition-all duration-500 border ${isSelected
-                                        ? "bg-white text-black border-[#C9A050]/30 shadow-[0_0_60px_rgba(201,160,80,0.08)]"
-                                        : "bg-white/[0.03] text-white border-white/10 hover:border-[#C9A050]/20 hover:bg-white/[0.05]"
+                                    ? "bg-white text-black border-[#C9A050]/30 shadow-[0_0_60px_rgba(201,160,80,0.08)]"
+                                    : "bg-white/[0.03] text-white border-white/10 hover:border-[#C9A050]/20 hover:bg-white/[0.05]"
                                     }`}
                                 layout
                                 whileTap={{ scale: 0.98 }}
@@ -160,8 +160,8 @@ export default function Pricing() {
                                         );
                                     }}
                                     className={`w-full py-3 rounded-full text-sm font-medium transition-all duration-300 mb-8 ${isSelected
-                                            ? "bg-gradient-to-r from-[#C9A050] to-[#E8C97A] text-black hover:opacity-90"
-                                            : "bg-white/10 text-white hover:bg-white/15"
+                                        ? "bg-gradient-to-r from-[#C9A050] to-[#E8C97A] text-black hover:opacity-90"
+                                        : "bg-white/10 text-white hover:bg-white/15"
                                         }`}
                                 >
                                     Elegir {pkg.title}
@@ -193,8 +193,8 @@ export default function Pricing() {
                                         <button
                                             onClick={(e) => toggleBonus(pkg.id, e)}
                                             className={`w-full flex items-center justify-between gap-2 py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isSelected
-                                                    ? "bg-[#C9A050]/10 text-[#C9A050] hover:bg-[#C9A050]/15"
-                                                    : "bg-[#C9A050]/5 text-[#C9A050]/70 hover:bg-[#C9A050]/10"
+                                                ? "bg-[#C9A050]/10 text-[#C9A050] hover:bg-[#C9A050]/15"
+                                                : "bg-[#C9A050]/5 text-[#C9A050]/70 hover:bg-[#C9A050]/10"
                                                 }`}
                                         >
                                             <span>🎁 Bonificación incluida</span>
